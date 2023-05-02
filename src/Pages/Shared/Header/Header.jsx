@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const Header = () => {
     return (
         <Container className='mt-4 p-2'>
-            <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+            <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
                 <Container>
                     <Navbar.Brand href="#home"><Image style={{ height: '60px' }} src={logo2} roundedCircle /></Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -19,6 +19,9 @@ const Header = () => {
                             <Nav.Link href="#deets">Profile</Nav.Link>
                             <Nav.Link eventKey={2} href="#memes">
                                 <Button variant="secondary">Login</Button>
+                            </Nav.Link>
+                            <Nav.Link eventKey={2} href="#memes">
+                                <Button variant="secondary">Register</Button>
                             </Nav.Link>
                         </Nav>
                     </Navbar.Collapse>

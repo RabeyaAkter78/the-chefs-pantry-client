@@ -7,7 +7,7 @@ import { FaBeer } from 'react-icons/fa';
 const Footer = () => {
     return (
         <Container className='text-white bg-dark p-2 '>
-            <Container>
+            <Container >
                 <Row>
                     <Col xs={{ order: 'first' }}>
                         <h5>Office Address</h5>
