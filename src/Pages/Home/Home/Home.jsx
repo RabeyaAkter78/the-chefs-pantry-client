@@ -12,8 +12,8 @@ const Home = () => {
                         alt="First slide"
                     />
                     <Carousel.Caption>
-                        <h3>First slide label</h3>
-                        <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                        <h3>Fish Curry</h3>
+                        <p>Fish Curry is just a Name"Macher Jhol" Is An Bengali Emotion!"</p>
                     </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item>
@@ -24,8 +24,8 @@ const Home = () => {
                     />
 
                     <Carousel.Caption>
-                        <h3>Second slide label</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        <h3>Bengali Mejabni</h3>
+                        <p> “Food is not rational. Food is culture, habit, craving, and identity.”</p>
                     </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item>
@@ -36,10 +36,8 @@ const Home = () => {
                     />
 
                     <Carousel.Caption>
-                        <h3>Third slide label</h3>
-                        <p>
-                            Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-                        </p>
+                        <h3>Good Food</h3>
+                        <p> “Food is the most primitive form of comfort.”</p>
                     </Carousel.Caption>
                 </Carousel.Item>
             </Carousel>
