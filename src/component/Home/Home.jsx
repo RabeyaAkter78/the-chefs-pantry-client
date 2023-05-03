@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Carousel, Container } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import ChefData from '../ChefDat/ChefData';
+import ChefData from '../ChefData/ChefData';
 
 const Home = () => {
     const [chefs, setChefs] = useState([]);
@@ -65,7 +65,6 @@ const Home = () => {
                             key={chef.id}
                             chef={chef}
                         >
-                            {/* <Link to="/recipes"><Recipes></Recipes></Link> */}
                         </ChefData>)
                     }
                 </div>

@@ -6,7 +6,7 @@ import { FaBeer } from 'react-icons/fa';
 
 const Footer = () => {
     return (
-        <Container className='text-white bg-dark p-2 '>
+        <Container className='text-white bg-dark p-5 mb-4 '>
             <Container >
                 <Row>
                     <Col xs={{ order: 'first' }}>
