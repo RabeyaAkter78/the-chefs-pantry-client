@@ -10,7 +10,7 @@ const Header = () => {
                     <Navbar.Brand href="#home"><Image style={{ height: '60px' }} src={logo} roundedCircle /></Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
-                        <Nav className="me-auto  fw-bold">
+                        <Nav className="ms-auto  fw-bold">
                             <Link className='text-decoration-none me-4 text-white fs-5' to="/">Home</Link>
                             <Link className='text-decoration-none me-4 text-white fs-5' to="/blogs">Blogs</Link>
 

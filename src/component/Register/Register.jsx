@@ -52,8 +52,8 @@ const Register = () => {
 
 
     return (
-        <Container className=' w-25 mx-auto'>
-            <h3>please Register</h3>
+        <Container className=' w-25 mx-auto m-5 p-3'>
+            <h3><u> Register</u></h3>
             <Form onSubmit={handleRegister}>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Name</Form.Label>
@@ -87,7 +87,7 @@ const Register = () => {
                 <Button variant="primary" disabled={!accepted} type="submit">Register</Button>
                 <br />
                 <Form.Text className="text-secondary">
-                    Already Have an Account? Please<Link to={'/login'}>Login</Link>
+                    Already Have an Account? Please <Link className='text-decoration-none' to={'/login'}> Login</Link>
                 </Form.Text>
 
                 <Form.Text className="text-success">

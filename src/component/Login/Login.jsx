@@ -1,8 +1,10 @@
 import { GithubAuthProvider, GoogleAuthProvider, getAuth, signInWithEmailAndPassword, signInWithPopup } from 'firebase/auth';
 import React, { useState } from 'react';
-import { Button, Container, Form } from 'react-bootstrap';
+import { Button, Card, Container, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import app from '../../firebase/firebase.config';
+import { FaGithub, FaGoogle } from 'react-icons/fa';
+import './login.css'
 
 const auth = getAuth(app)
 const Login = () => {
@@ -60,7 +62,7 @@ const Login = () => {
                 console.log(loggedInUser);
                 setError('');
                 form.reset();
-                setSuccess('Login Successfull!')
+                setSuccess('Successfully Login !')
             })
             .catch(error => {
                 console.log(error.message);
@@ -70,9 +72,9 @@ const Login = () => {
     }
 
     return (
-        <Container className=' w-25 mx-auto'>
-            <h3>please Login</h3>
-            <Form onSubmit={handleLogin}>
+        <Container className='m-5 p-3'>
+            <h3 className='text-center'><u>Please Login</u></h3>
+            <Form className=' w-25 mx-auto' onSubmit={handleLogin}>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Email address</Form.Label>
                     <Form.Control type="email" name='email' placeholder="Enter email" required />
@@ -91,18 +93,21 @@ const Login = () => {
                 <Form.Text className="text-danger">
                     <p>{error}</p>
                 </Form.Text>
+                <Form.Text className="text-secondary text-center">
+                    Don't Have an Account? Please<Link className='text-decoration-none' to={'/register'}> Register</Link>
+                </Form.Text>
             </Form>
             {/* login with google */}
-            <Container className='mt-2 mb-2'>
-                <Button onClick={handleLogInWithGoogle} className='mb-2' variant="outline-secondary">Login with Google</Button>
+            <hr className='w-50 mx-auto mt-3' />
+            <h6 className='text-center mt-3 mb-2'>Login With</h6>
+            <Container className='d-flex justify-content-center align-items-center gap-3 m-2'>
+                <Button onClick={handleLogInWithGoogle} variant="outline-secondary"><FaGoogle /> Login with Google</Button>
 
 
                 {/* login with git hub */}
-                <Button onClick={handleGithubLogin} variant="outline-success">Login with github</Button>
+                <Button onClick={handleGithubLogin} variant="outline-success"> <FaGithub />Login with github</Button>
             </Container>
-            <Form.Text className="text-secondary">
-                Don't Have an Account? Please<Link to={'/register'}> Register</Link>
-            </Form.Text>
+
         </Container>
 
     );
