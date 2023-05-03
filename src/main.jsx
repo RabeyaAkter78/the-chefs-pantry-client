@@ -12,6 +12,7 @@ import Recipes from './component/Recipes/Recipes';
 import Blogs from './component/Blogs/Blogs';
 import Login from './component/Login/Login';
 import Register from './component/Register/Register';
+import Error from './component/Error/Error';
 
 
 const router = createBrowserRouter([
@@ -38,6 +39,10 @@ const router = createBrowserRouter([
       {
         path: "/recipes",
         element: <Recipes></Recipes>
+      },
+      {
+        path: '*',
+        element: <Error></Error>
       }
     ]
   },
