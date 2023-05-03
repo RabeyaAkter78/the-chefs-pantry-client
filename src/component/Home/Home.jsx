@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { Carousel } from 'react-bootstrap';
+import { Carousel, Container } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import ChefData from '../ChefDat/ChefData';
 
 const Home = () => {
@@ -16,8 +17,8 @@ const Home = () => {
 
 
     return (
-        <div>
-            <Carousel>
+        <Container>
+            <Carousel className='mt-0'>
                 <Carousel.Item>
                     <img
                         className="d-block img-fluid w-100 "
@@ -63,13 +64,15 @@ const Home = () => {
                         chefs.map(chef => <ChefData
                             key={chef.id}
                             chef={chef}
-                        ></ChefData>)
+                        >
+                            {/* <Link to="/recipes"><Recipes></Recipes></Link> */}
+                        </ChefData>)
                     }
                 </div>
             </div>
 
 
-        </div>
+        </Container>
     );
 };
 
