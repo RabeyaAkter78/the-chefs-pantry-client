@@ -1,15 +1,46 @@
-import React, { useContext } from 'react';
+import { GithubAuthProvider, GoogleAuthProvider, getAuth, signInWithEmailAndPassword, signInWithPopup } from 'firebase/auth';
+import React, { useState } from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { AuthContext } from '../Providers/Authprovider';
+import { Link } from 'react-router-dom';
+import app from '../../firebase/firebase.config';
 
+const auth = getAuth(app)
 const Login = () => {
-    // const { signInUser } = useContext(AuthContext);
-    // const location = useLocation();
-    // console.log('login page location', location);
-    // const from = location.state?.from.pathname || '/home'
+    const [user, setUser] = useState(null);
+    const [error, setError] = useState('');
+    const [success, setSuccess] = useState('');
+
+    // login with google:
+    const provider = new GoogleAuthProvider();
+    const githubProvider = new GithubAuthProvider();
+
+    const handleLogInWithGoogle = () => {
+
+        signInWithPopup(auth, provider)
+            .then(result => {
+                const loggedUser = result.user;
+                console.log(loggedUser);
+                setUser(loggedUser);
+            })
+            .catch(error => {
+                console.log(error.message);
+            })
+    }
+    // login with github:
+    const handleGithubLogin = () => {
+        signInWithPopup(auth, githubProvider)
+            .then(result => {
+                const loggedUser = result.user;
+                console.log(loggedUser);
+                setUser(loggedUser);
+            })
+            .catch(error => {
+                console.log(error.message);
+            })
+    }
 
 
+    // login with email & password
     const handleLogin = event => {
         event.preventDefault();
         const form = event.target;
@@ -18,15 +49,24 @@ const Login = () => {
 
         console.log(email, password);
 
-        signInUser(email, password)
+        if (/((?=.*\\d)(?=.*[a-z])(?=.*[A-Z])|(?=.*[\\d~!@#$%^&*\\(\\)_+\\{\\}\\[\\]\\?<>|_]).{6,50})/.test(password)) {
+            setError('incorrect password');
+            return;
+        }
+
+        signInWithEmailAndPassword(auth, email, password)
             .then(result => {
-                const loggedUser = result.user;
-                console.log(loggedUser)
-                navigate(from, { replace: true })
+                const loggedInUser = result.user;
+                console.log(loggedInUser);
+                setError('');
+                form.reset();
+                setSuccess('Login Successfull!')
             })
             .catch(error => {
-                console.log(error)
+                console.log(error.message);
+                setError(error.message);
             })
+
     }
 
     return (
@@ -53,13 +93,22 @@ const Login = () => {
                 </Form.Text>
 
                 <Form.Text className="text-success">
-
+                    <p>{success}</p>
                 </Form.Text>
                 <Form.Text className="text-danger">
-
+                    <p>{error}</p>
                 </Form.Text>
             </Form>
+            {/* login with google */}
+            <Container className='mt-2 mb-2'>
+                <Button onClick={handleLogInWithGoogle} className='mb-2' variant="outline-secondary">Login with Google</Button>
+
+
+                {/* login with git hub */}
+                <Button onClick={handleGithubLogin} variant="outline-success">Login with github</Button>
+            </Container>
         </Container>
+
     );
 };
 

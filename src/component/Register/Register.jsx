@@ -9,11 +9,12 @@ import app from '../../firebase/firebase.config';
 const auth = getAuth(app);
 const Register = () => {
     const [error, setError] = useState('');
-    const [sucess, setSuccess] = useState('')
+    const [success, setSuccess] = useState('')
     const [accepted, setAccepted] = useState(false);
 
     const handleRegister = event => {
         event.preventDefault();
+        setSuccess('');
         const form = event.target;
         const name = form.name.value;
         const photo = form.photo.value;
@@ -21,6 +22,12 @@ const Register = () => {
         const password = form.password.value;
 
         console.log(name, photo, email, password);
+
+        if (password.length < 6) {
+            setError(' Password should be at least 6 characters');
+            return;
+        }
+
 
 
         createUserWithEmailAndPassword(auth, email, password)
@@ -84,7 +91,7 @@ const Register = () => {
                 </Form.Text>
 
                 <Form.Text className="text-success">
-                    <p>{sucess}</p>
+                    <p>{success}</p>
                 </Form.Text>
                 <Form.Text className="text-danger">
                     <p>{error}</p>
