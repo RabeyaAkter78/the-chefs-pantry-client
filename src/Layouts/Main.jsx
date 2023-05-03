@@ -8,12 +8,17 @@ const Main = () => {
     return (
         <div>
             <Header></Header>
-            <Container fluid="md">
+
+            <Container>
+                <Home></Home>
+
+            </Container>
+            {/* <Container fluid="md">
                 <Row>
                     <Home></Home>
                     <Col>Main content comimg "carosel"</Col>
                 </Row>
-            </Container>
+            </Container> */}
             <Footer></Footer>
         </div>
     );

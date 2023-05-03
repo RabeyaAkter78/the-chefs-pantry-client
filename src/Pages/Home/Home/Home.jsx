@@ -1,7 +1,20 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Carousel } from 'react-bootstrap';
+import ChefData from '../ChefDat/ChefData';
 
 const Home = () => {
+    const [chefs, setChefs] = useState([]);
+
+    useEffect(() => {
+        fetch('http://localhost:5000/chefs')
+            .then(res => res.json())
+            .then(data => setChefs(data))
+            .catch(error => {
+                console.error(error)
+            })
+    }, [])
+
+
     return (
         <div>
             <Carousel>
@@ -41,6 +54,21 @@ const Home = () => {
                     </Carousel.Caption>
                 </Carousel.Item>
             </Carousel>
+
+            {/* chefs section */}
+            <div>
+                <h3 className='text-center m-5'>Meet Our Top Chefs</h3>
+                <div className='row row-cols-1 row-cols-md-3 g-4 p-2 mb-4'>
+                    {
+                        chefs.map(chef => <ChefData
+                            key={chef.id}
+                            chef={chef}
+                        ></ChefData>)
+                    }
+                </div>
+            </div>
+
+
         </div>
     );
 };
