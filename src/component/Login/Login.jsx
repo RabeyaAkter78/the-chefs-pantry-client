@@ -46,6 +46,8 @@ const Login = () => {
                 const loggedUser = result.user;
                 console.log(loggedUser);
                 setUser(loggedUser);
+                navigate(from, { replace: true });
+
             })
             .catch(error => {
                 console.log(error.message);
@@ -58,6 +60,8 @@ const Login = () => {
                 const loggedUser = result.user;
                 console.log(loggedUser);
                 setUser(loggedUser);
+                navigate(from, { replace: true });
+
             })
             .catch(error => {
                 console.log(error.message);
@@ -83,7 +87,7 @@ const Login = () => {
             .then(result => {
                 const loggedInUser = result.user;
                 console.log(loggedInUser);
-                navigate(from, { replace: true })
+                navigate(from, { replace: true });
                 setError('');
                 form.reset();
                 setSuccess('Successfully Login !')

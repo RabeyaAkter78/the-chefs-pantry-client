@@ -17,6 +17,7 @@ import Authprovider from './component/Providers/Authprovider';
 import PrivateRoute from './component/PrivateRoute/PrivateRoute';
 
 
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -38,10 +39,16 @@ const router = createBrowserRouter([
         path: "/register",
         element: <Register></Register>
       },
+
       {
         path: "/recipes",
-        element: <PrivateRoute><Recipes></Recipes></PrivateRoute>
+        element: <PrivateRoute><Recipes></Recipes></PrivateRoute>,
+        loader:()=>fetch('http://localhost:5000/chefs')
       },
+      // {
+      //   path: "/recipes",
+      //   element: <PrivateRoute><Recipes></Recipes></PrivateRoute>
+      // },
       {
         path: '*',
         element: <Error></Error>

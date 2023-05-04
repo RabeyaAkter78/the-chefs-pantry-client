@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import './Header.css'
 import { AuthContext } from '../Providers/Authprovider';
 import { FaUserCircle } from 'react-icons/fa';
+import ActiveLink from '../ActiveLink/ActiveLink';
 
 const Header = () => {
     const { user, logout } = useContext(AuthContext);
@@ -21,7 +22,10 @@ const Header = () => {
         <Container className='mt-4  align-items-center'>
             <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" className='container hb'>
                 <Container>
-                    <Navbar.Brand href="#home"><Image style={{ height: '60px' }} src={logo} roundedCircle /></Navbar.Brand>
+                    <Navbar.Brand className='d-flex justify-content-center align-items-center gap-2' href="#home">
+                        <Image style={{ height: '60px' }} src={logo} roundedCircle />
+                        <p className='fs-3 fst-italic fw-bold'>The Chefs Pantry</p>
+                    </Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="ms-auto  fw-bold">
@@ -31,14 +35,13 @@ const Header = () => {
 
                         </Nav>
                         <Nav>
-                            {user && <Image src={user.photoURL} roundedCircle />}
+                            {user && <Image style={{ height: '50px' }} src={user.photoURL} roundedCircle />}
 
                             {user ?
-                                <Button onClick={handleLogout} variant='secondary'>LogOut</Button>
+                                <Button className='ms-3' onClick={handleLogout} variant='secondary'>LogOut</Button>
                                 :
                                 <Link to='/login'><Button variant='secondary'>Login</Button></Link>
                             }
-
 
                         </Nav>
                     </Navbar.Collapse>
