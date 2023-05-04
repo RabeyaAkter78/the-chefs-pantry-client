@@ -4,13 +4,16 @@ import { initializeApp } from "firebase/app";
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
+
+console.log('environment variables', import.meta.env.VITE_apiKey)
+
 const firebaseConfig = {
-  apiKey: "AIzaSyCvlA0waq173BcwUFTBuj8oJ734HYCLhjs",
-  authDomain: "the-chefs-pantry-client.firebaseapp.com",
-  projectId: "the-chefs-pantry-client",
-  storageBucket: "the-chefs-pantry-client.appspot.com",
-  messagingSenderId: "110647572471",
-  appId: "1:110647572471:web:7f866b3c2f5c910e1ca0f2"
+  apiKey: import.meta.env.VITE_apiKey,
+  authDomain: import.meta.env.VITE_authDomain,
+  projectId: import.meta.env.VITE_projectId,
+  storageBucket: import.meta.env.VITE_storageBucket,
+  messagingSenderId: import.meta.env.VITE_messagingSenderId,
+  appId: import.meta.env.VITE_appId
 };
 
 // Initialize Firebase

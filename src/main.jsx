@@ -13,6 +13,8 @@ import Blogs from './component/Blogs/Blogs';
 import Login from './component/Login/Login';
 import Register from './component/Register/Register';
 import Error from './component/Error/Error';
+import Authprovider from './component/Providers/Authprovider';
+import PrivateRoute from './component/PrivateRoute/PrivateRoute';
 
 
 const router = createBrowserRouter([
@@ -38,7 +40,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/recipes",
-        element: <Recipes></Recipes>
+        element: <PrivateRoute><Recipes></Recipes></PrivateRoute>
       },
       {
         path: '*',
@@ -49,6 +51,9 @@ const router = createBrowserRouter([
 ]);
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={router}></RouterProvider>
+    <Authprovider>
+      <RouterProvider router={router}></RouterProvider>
+    </Authprovider>
+
   </React.StrictMode>,
 )

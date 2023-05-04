@@ -3,14 +3,15 @@ import { Button, Card } from 'react-bootstrap';
 import { FaHeart, FaStar } from 'react-icons/fa';
 
 const Recipe = ({ recipe }) => {
-    const { name, picture, years_of_experience, number_of_recipes, likes, recipe_name, ingredients, cooking_method, rating } = recipe;
+    const { name, recipeImg, years_of_experience, number_of_recipes, likes, recipe_name, ingredients, cooking_method, rating } = recipe;
     return (
         <div>
             <div>
+
                 <Card>
-                    <Card.Img variant="top" style={{ height: '200px' }} src={picture} />
+                    <Card.Img variant="top" style={{ height: '200px' }} src={recipeImg} />
                     <Card.Body>
-                        <Card.Title>{name}</Card.Title>
+                        <Card.Title>{recipe_name}</Card.Title>
                         <Card.Text> <p><span className='fw-bold'>Ingredients:</span></p> {ingredients}</Card.Text>
                         <Card.Text> <p><span className='fw-bold'>Cooking Methods:</span></p> {cooking_method}</Card.Text>
                         <Card.Text> <p className='d-flex justify-content-between align-items-center'>

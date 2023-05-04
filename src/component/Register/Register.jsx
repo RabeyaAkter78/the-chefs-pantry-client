@@ -8,6 +8,8 @@ import app from '../../firebase/firebase.config';
 
 const auth = getAuth(app);
 const Register = () => {
+    const { createUser } = useContext(AuthContext);
+
     const [error, setError] = useState('');
     const [success, setSuccess] = useState('')
     const [accepted, setAccepted] = useState(false);
@@ -30,10 +32,11 @@ const Register = () => {
 
 
 
-        createUserWithEmailAndPassword(auth, email, password)
+        // createUserWithEmailAndPassword(auth, email, password)
+        createUser(email, password)
             .then(result => {
-                const loggedInUser = result.user;
-                console.log(loggedInUser);
+                const createdUser = result.user;
+                console.log(createdUser);
                 setError('');
                 form.reset();
                 setSuccess('user has been created successfully!')
@@ -42,9 +45,6 @@ const Register = () => {
                 console.log(error.message);
                 setError(error.message);
             })
-
-
-
     }
     const handleAccepted = (event) => {
         setAccepted(event.target.checked)

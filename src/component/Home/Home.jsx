@@ -71,7 +71,7 @@ const Home = () => {
                 </div>
             </div>
 
-            <h4 className='text-center m-4 px-4'>Must Try Items</h4>
+            <h3 className='text-center fw-bold m-4 px-4'>Must Try Items</h3>
             <div className='row row-cols-1 row-cols-md-3 g-4  mb-4 ms-3' >
                 <Card style={{ width: '22rem' }}>
                     <Card.Img style={{ height: '250px' }} variant="top" src="https://i0.wp.com/pikturenama.com/wp-content/uploads/2020/10/Low-res-Sosrshe-Ilish-8.jpg?fit=1200%2C800&ssl=1" />
@@ -121,7 +121,7 @@ const Home = () => {
                     </Card.Body>
                 </Card>
             </div>
-            <h4 className='text-center m-4 px-4'>ABOUT US</h4>
+            <h4 className='text-center fw-bold m-4 px-4'>ABOUT US</h4>
             <div>
                 <div className="card mb-3" >
                     <div className="row g-0">

@@ -14,7 +14,7 @@ const Recipes = () => {
             })
 
     }, [])
-
+ 
 
     return (
         <div>
@@ -26,6 +26,8 @@ const Recipes = () => {
                         <Card.Img variant="top" src='' />
                         <Card.Body>
                             <Card.Text>
+                                
+                        
                                 Some quick example text to build on the card title and make up the
                                 bulk of the card's content.
                             </Card.Text>
@@ -36,8 +38,6 @@ const Recipes = () => {
 
 
                 <div className='row row-cols-1 row-cols-md-3 g-4 p-2 mb-4'>
-
-
                     {
                         recipes.map(recipe => <Recipe
                             key={recipe.id}
