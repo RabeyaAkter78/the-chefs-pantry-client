@@ -1,5 +1,5 @@
 * The chefs pantry
-* live site link:http://localhost:5174/
+* live site link:https://the-chefs-pantry-server-rabeyaakter78.vercel.app/
 * Blog Question Are:
 * 1.Tell us the differences between uncontrolled and controlled components.
 * 2.How to validate React props using PropTypes.
