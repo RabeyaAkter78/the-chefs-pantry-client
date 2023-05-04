@@ -1,0 +1,7 @@
+.banner {
+    background-image: url('https://images.fineartamerica.com/images-medium-large-5/1-pulses-on-metal-spoons-science-photo-library.jpg');
+    /* background-repeat: no-repeat;
+    width: 100%; */
+    position: sticky;
+    top: 0;
+}

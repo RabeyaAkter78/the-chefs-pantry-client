@@ -2,10 +2,12 @@ import React from 'react';
 import { Container, Image, Nav, Navbar } from 'react-bootstrap';
 import logo from '../../../images/logo2.png'
 import { Link } from 'react-router-dom';
+import './Header.css'
+
 const Header = () => {
     return (
         <Container className='mt-4  align-items-center'>
-            <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" className='container'>
+            <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" className='container hb'>
                 <Container>
                     <Navbar.Brand href="#home"><Image style={{ height: '60px' }} src={logo} roundedCircle /></Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />

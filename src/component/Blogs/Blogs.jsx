@@ -1,12 +1,11 @@
 import React from 'react';
 import { Card, Col, Container, Row } from 'react-bootstrap';
-
 const Blogs = () => {
     return (
         <div>
             <Container className='mt-2 mb-2'>
                 <Card className="bg-dark text-white">
-                    <Card.Img src="https://img.freepik.com/free-vector/abstract-blue-light-pipe-speed-zoom-black-background-technology_1142-9980.jpg" alt="Card image" />
+                    <Card.Img src="https://t3.ftcdn.net/jpg/02/81/50/18/360_F_281501867_XI5OBa4UuGVxMbv5gNLCcCkPDjsX6r0U.jpg" alt="Card image" />
                     <Card.ImgOverlay>
 
                         <Card.Header> <li><strong>Tell us the differences between uncontrolled and controlled components.</strong> </li> </Card.Header>

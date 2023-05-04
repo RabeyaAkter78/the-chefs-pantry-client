@@ -72,7 +72,9 @@ const Login = () => {
     }
 
     return (
-        <Container className='m-5 p-3'>
+        <div className='container text-white'>
+
+            <div className='lb'>
             <h3 className='text-center'><u>Please Login</u></h3>
             <Form className=' w-25 mx-auto' onSubmit={handleLogin}>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -100,15 +102,18 @@ const Login = () => {
             {/* login with google */}
             <hr className='w-50 mx-auto mt-3' />
             <h6 className='text-center mt-3 mb-2'>Login With</h6>
-            <Container className='d-flex justify-content-center align-items-center gap-3 m-2'>
-                <Button onClick={handleLogInWithGoogle} variant="outline-secondary"><FaGoogle /> Login with Google</Button>
+            <Container className='d-flex justify-content-center align-items-center gap-3 mb-3 '>
+                <Button className='mb-3' onClick={handleLogInWithGoogle} variant="outline-secondary"><FaGoogle /> Login with Google</Button>
 
 
                 {/* login with git hub */}
-                <Button onClick={handleGithubLogin} variant="outline-success"> <FaGithub />Login with github</Button>
+                <Button className='mb-3' onClick={handleGithubLogin} variant="outline-success"> <FaGithub />Login with github</Button>
             </Container>
 
-        </Container>
+            </div>
+
+            
+        </div>
 
     );
 };
