@@ -8,7 +8,8 @@ import ActiveLink from '../ActiveLink/ActiveLink';
 
 const Header = () => {
     const { user, logout } = useContext(AuthContext);
-    
+    console.log(user?.displayName);
+    console.log(user);
     const handleLogout = () => {
         logout()
             .then()
@@ -38,15 +39,11 @@ const Header = () => {
 
                         </Nav>
                         <Nav>
-                            {/* <button type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Tooltip on top">
-                                Tooltip on top
-                            </button> */}
+                            {user &&
+                                <Image style={{ height: '50px' }} title={user?.displayName} src={user?.photoURL} roundedCircle />
 
-                            {user && 
-                            <Image  style={{ height: '50px' }} src={user.photoURL} roundedCircle />
-                            
                             }
-                            
+
                             {user ?
                                 <Button className='ms-3' onClick={handleLogout} variant='secondary'>LogOut</Button>
                                 :

@@ -40,15 +40,16 @@ const router = createBrowserRouter([
         element: <Register></Register>
       },
 
+      {
+        path: "recipes/:id",
+        element: <PrivateRoute><Recipes></Recipes></PrivateRoute>,
+        // loader:({params})=>fetch(`https://the-chefs-pantry-server-rabeyaakter78.vercel.app/${params.id}`),
+        loader:()=>fetch('https://the-chefs-pantry-server-rabeyaakter78.vercel.app/chefs')
+      },
       // {
       //   path: "/recipes",
       //   element: <PrivateRoute><Recipes></Recipes></PrivateRoute>,
-      //   loader:()=>fetch('https://the-chefs-pantry-server-rabeyaakter78.vercel.app/chefs')
       // },
-      {
-        path: "/recipes",
-        element: <PrivateRoute><Recipes></Recipes></PrivateRoute>
-      },
       {
         path: '*',
         element: <Error></Error>

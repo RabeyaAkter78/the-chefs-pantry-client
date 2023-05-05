@@ -9,18 +9,27 @@ import { AuthContext } from '../Providers/Authprovider';
 
 const auth = getAuth(app)
 const Login = () => {
+    const [user, setUser] = useState(null);
+    const [error, setError] = useState('');
+    const [success, setSuccess] = useState('');
+
     const { signInUser } = useContext(AuthContext)
     const navigate = useNavigate();
     const location = useLocation();
     // console.log('login page location', location)
     const from = location.state?.from.pathname || '/';
 
-    const [user, setUser] = useState(null);
-    const [error, setError] = useState('');
-    const [success, setSuccess] = useState('');
+
 
     // const logout = () => {
     //     signOut(auth)
+    // }
+
+    // const emailUser = auth.currentUser();
+    // if (emailUser !== null) {
+    //     const displayName = emailUser.displayName;
+    //     const photoURL = emailUser.photoURL;
+
     // }
 
     useEffect(() => {

@@ -8,7 +8,7 @@ import app from '../../firebase/firebase.config';
 
 const auth = getAuth(app);
 const Register = () => {
-    const { createUser } = useContext(AuthContext);
+    const { createUser, updateUserData } = useContext(AuthContext);
 
     const [error, setError] = useState('');
     const [success, setSuccess] = useState('')
@@ -30,21 +30,37 @@ const Register = () => {
             return;
         }
 
+        createUser(email, password)
+            .then(() => {
+                updateUserData(name, photo)
+                    .then(() => {
+                    })
+                    .catch(err => console.log(err.message));
 
+            })
+            .catch(err => setError(err?.message))
 
         // createUserWithEmailAndPassword(auth, email, password)
-        createUser(email, password)
-            .then(result => {
-                const createdUser = result.user;
-                console.log(createdUser);
-                setError('');
-                form.reset();
-                setSuccess('user has been created successfully!')
-            })
-            .catch(error => {
-                console.log(error.message);
-                setError(error.message);
-            })
+        // createUser(email, password)
+        //     .then(result => {
+        //         // const createdUser = result.user;
+        //         // console.log(createdUser);
+        //         // setError('');
+        //         updateUserData(name, photo)
+        //             .then(result => {
+
+        //             })
+        //             .catch(error => {
+        //                 // console.log(error)
+        //             })
+        //         // form.reset();
+        //         // setSuccess('user has been created successfully!');
+
+        //     })
+        //     .catch(error => {
+        //         console.log(error.message);
+        //         setError(error.message);
+        //     })
     }
     const handleAccepted = (event) => {
         setAccepted(event.target.checked)

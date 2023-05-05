@@ -4,10 +4,12 @@ import { Link } from 'react-router-dom';
 import ChefData from '../ChefData/ChefData';
 import MustTryItems from '../MustTryItems/MustTryItems';
 import LazyLoad from 'react-lazy-load';
+import Recipes from '../Recipes/Recipes';
 
 
 const Home = () => {
     const [chefs, setChefs] = useState([]);
+    // const [chefDetail, setChefdetail] = useState([]);
 
     useEffect(() => {
         fetch('https://the-chefs-pantry-server-rabeyaakter78.vercel.app/chefs')
@@ -77,6 +79,20 @@ const Home = () => {
                         </ChefData>)
                     }
                 </div>
+
+                {/* chef banner start */}
+                {/* <div>
+                    {
+                        chefs.map(chefs => <Recipes
+                            key={chefs.id}
+                            chefs={chefs}
+                        >
+                        </Recipes>)
+                    }
+
+                </div> */}
+                {/* chef banner end */}
+
             </div>
 
             <h3 className='text-center fw-bold m-4 px-4'>Must Try Items</h3>

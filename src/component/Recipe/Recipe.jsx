@@ -9,7 +9,7 @@ const Recipe = ({ recipe }) => {
 
     const handleFavourite = () => {
         setFavourites(true);
-        toast.success('Successfully Add On Your Favourite list!')
+        toast.success('Successfully Add On Your Favourite list!');
     }
 
     const { name, recipeImg, years_of_experience, number_of_recipes, likes, recipe_name, ingredients, cooking_method, rating } = recipe;
