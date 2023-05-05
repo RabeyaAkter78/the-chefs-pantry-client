@@ -1,10 +1,30 @@
 import React from 'react';
-import { Card, Col, Container, Row } from 'react-bootstrap';
+import { Button, Card, Col, Container, Row } from 'react-bootstrap';
+import Pdf from 'react-to-pdf';
+import { useRef } from 'react';
+import { FaDownload } from 'react-icons/fa';
 const Blogs = () => {
+    const ref = useRef();
+
+
+
+
     return (
         <div>
             <Container className='mt-2 mb-2'>
-                <Card className="bg-dark text-white">
+                <div className="App">
+                    <Pdf targetRef={ref} filename="document.pdf">
+                        {({ toPdf }) => (
+                            <button onClick={toPdf} className="button">
+                                <FaDownload></FaDownload> Generate PDF
+                            </button>
+                        )}
+                    </Pdf>
+                    <div ref={ref}>{/* Your UI goes here */}</div>
+                </div>
+
+
+                <Card ref={ref} className="bg-dark text-white">
                     <Card.Img src="https://t3.ftcdn.net/jpg/02/81/50/18/360_F_281501867_XI5OBa4UuGVxMbv5gNLCcCkPDjsX6r0U.jpg" alt="Card image" />
                     <Card.ImgOverlay>
 
@@ -23,8 +43,7 @@ const Blogs = () => {
                                 <li>PropTypes.bool : The prop should be a Boolean.</li>
                                 <li>PropTypes.number : The prop should be a number.</li>
                                 <li>PropTypes.string : The prop should be a string.</li>
-                                <li>PropTypes.func : The prop should be a function.</li>
-                                <li>PropTypes.array : The prop should be an array.</li>
+
                             </p>
                         </Card.Text>
                         <Card.Header> <li> <strong>Tell us the difference between nodejs and express js.</strong> </li> </Card.Header>

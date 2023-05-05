@@ -40,15 +40,15 @@ const router = createBrowserRouter([
         element: <Register></Register>
       },
 
-      {
-        path: "/recipes",
-        element: <PrivateRoute><Recipes></Recipes></PrivateRoute>,
-        loader:()=>fetch('http://localhost:5000/chefs')
-      },
       // {
       //   path: "/recipes",
-      //   element: <PrivateRoute><Recipes></Recipes></PrivateRoute>
+      //   element: <PrivateRoute><Recipes></Recipes></PrivateRoute>,
+      //   loader:()=>fetch('https://the-chefs-pantry-server-rabeyaakter78.vercel.app/chefs')
       // },
+      {
+        path: "/recipes",
+        element: <PrivateRoute><Recipes></Recipes></PrivateRoute>
+      },
       {
         path: '*',
         element: <Error></Error>

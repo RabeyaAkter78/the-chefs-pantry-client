@@ -12,9 +12,8 @@ const Login = () => {
     const { signInUser } = useContext(AuthContext)
     const navigate = useNavigate();
     const location = useLocation();
-    console.log('login page location', location)
+    // console.log('login page location', location)
     const from = location.state?.from.pathname || '/';
-
 
     const [user, setUser] = useState(null);
     const [error, setError] = useState('');
@@ -26,7 +25,7 @@ const Login = () => {
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, loggedInUser => {
-            console.log('loguser', loggedInUser);
+            // console.log('loggedUser', loggedInUser);
             setUser(loggedInUser)
         })
         return () => {
@@ -44,7 +43,7 @@ const Login = () => {
         signInWithPopup(auth, provider)
             .then(result => {
                 const loggedUser = result.user;
-                console.log(loggedUser);
+                // console.log(loggedUser);
                 setUser(loggedUser);
                 navigate(from, { replace: true });
 
@@ -90,7 +89,8 @@ const Login = () => {
                 navigate(from, { replace: true });
                 setError('');
                 form.reset();
-                setSuccess('Successfully Login !')
+                setSuccess('Successfully Login !');
+                setUser(loggedInUser)
             })
             .catch(error => {
                 console.log(error.message);

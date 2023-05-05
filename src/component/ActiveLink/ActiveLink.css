@@ -1,3 +1,6 @@
 .active{
-    background-color: red;
+    background-color:mediumseagreen;
+    padding: 5px;
+    border-radius: 10px;
+    margin: 2px;
 }

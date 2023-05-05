@@ -1,14 +1,14 @@
 import React, { useContext } from 'react';
 import { Button, Container, Image, Nav, Navbar } from 'react-bootstrap';
 import logo from '../../../images/logo2.png'
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import './Header.css'
 import { AuthContext } from '../Providers/Authprovider';
-import { FaUserCircle } from 'react-icons/fa';
 import ActiveLink from '../ActiveLink/ActiveLink';
 
 const Header = () => {
     const { user, logout } = useContext(AuthContext);
+    
     const handleLogout = () => {
         logout()
             .then()
@@ -16,7 +16,6 @@ const Header = () => {
                 console.log(error)
             })
     }
-
 
     return (
         <Container className='mt-4  align-items-center'>
@@ -29,18 +28,29 @@ const Header = () => {
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="ms-auto  fw-bold">
-                            <Link className='text-decoration-none me-4 text-white fs-5' to="/">Home</Link>
-                            <Link className='text-decoration-none me-4 text-white fs-5' to="/blogs">Blogs</Link>
+
+
+                            <NavLink className='text-decoration-none  me-4 text-white fs-5' to="/">Home</NavLink>
+
+
+                            <NavLink className='text-decoration-none me-4 text-white fs-5' to="/blogs">Blogs</NavLink>
 
 
                         </Nav>
                         <Nav>
-                            {user && <Image style={{ height: '50px' }} src={user.photoURL} roundedCircle />}
+                            {/* <button type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Tooltip on top">
+                                Tooltip on top
+                            </button> */}
 
+                            {user && 
+                            <Image  style={{ height: '50px' }} src={user.photoURL} roundedCircle />
+                            
+                            }
+                            
                             {user ?
                                 <Button className='ms-3' onClick={handleLogout} variant='secondary'>LogOut</Button>
                                 :
-                                <Link to='/login'><Button variant='secondary'>Login</Button></Link>
+                                <NavLink to='/login'><Button variant='secondary'>Login</Button></NavLink>
                             }
 
                         </Nav>
