@@ -1,7 +1,7 @@
 * The chefs pantry
-* live site link:https://the-chefs-pantry-server-rabeyaakter78.vercel.app/
-* Blog Question Are:
-* 1.Tell us the differences between uncontrolled and controlled components.
-* 2.How to validate React props using PropTypes.
-* 3.Tell us the difference between nodejs and express js.
-* 4.What is a custom hook, and why will you create a custom hook?
+* live site link:https://the-chefs-pantry-client.web.app/
+
+* after successfully login, an user can bookmark his/her favourite recipe.
+* In Blog page, an user can download the blog as pdf form.
+* Firebase is used for Authentication purpose.
+* Technologies:react,bootstrap,react-bootstrap,react-dom,eact-hot-toast,react-lazy-load,react-to-pdf,react-icons,firebase,
