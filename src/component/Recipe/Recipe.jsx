@@ -24,7 +24,7 @@ const Recipe = ({ recipe }) => {
                         <Card.Text> <p><span className='fw-bold'>Ingredients:</span></p> {ingredients}</Card.Text>
                         <Card.Text> <p><span className='fw-bold'>Cooking Methods:</span></p> {cooking_method}</Card.Text>
                         <Card.Text> <p className='d-flex justify-content-between align-items-center'>
-                            <span className='fw-bold'><FaStar></FaStar> Rating:</span> {rating}
+                            <span className='fw-bold '><FaStar></FaStar>Ratings:</span> {rating}
 
                             <span><Button onClick={handleFavourite} disabled={favourites} variant="success"><FaHeart></FaHeart> Favourite  </Button>
                                 <Toaster />
